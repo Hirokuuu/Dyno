@@ -1,100 +1,75 @@
-# Dyno
-
-
-# DYNO - Dynamic Card Security Protocol  
-**Zero-Static Payment Infrastructure**  
-
-[![Project License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 
-[![RFC Draft](https://img.shields.io/badge/RFC%20Status-Draft-yellow)](https://datatracker.ietf.org/doc/draft-dyno-protocol/) 
 
 ---
 
-## 🔐 Problem Statement  
-Traditional payment cards lose $32.4B annually to fraud due to:  
-- Static PAN/CVV/Expiry credentials  
-- Physical card data leakage  
-- Costly reissuance cycles ($3-10/card)  
+# 🔐 Dyno Systems – Next-Gen Dynamic Payment Card Security
 
-DYNO eliminates these vulnerabilities through **real-time credential rotation**.
+**Dyno Systems** is a revolutionary card solution that eliminates the vulnerabilities of traditional payment cards by removing static card data and implementing real-time dynamic tokenization. Our solution is designed to fight card theft, reduce fraud, and cut operational costs for banks and consumers alike.
 
 ---
 
-## 🛡️ Core Innovation  
-### Dynamic Authentication Protocol  
-```plaintext
-+---------------------+       +---------------------+
-|   Physical Card     |       |   Bank Backend      |
-|  (Blank Surface)    |<----->|  (DYNO Engine)      |
-| - EMV Chip          |       | - Rotating PAN      |  
-| - Magstripe         |       | - Time-based CVV    |
-+---------------------+       | - Ephemeral Expiry  |
-                              +---------------------+
+## 🚀 Overview
 
+Dyno is a secure, numberless card that relies on dynamic, rotating card numbers and CVVs. With no visible information on the card itself and secure token generation through a connected app or embedded chip, Dyno makes stolen data useless to hackers.
 
-### Key Features  
-| Component           | Specification                          |
-|---------------------|----------------------------------------|
-| Credential Rotation | 60-sec TTL for PAN/CVV/Expiry          |
-| Cryptographic Base  | AES-256 + HMAC-SHA384                  |
-| Token Mapping       | ISO 8583-compliant dynamic BIN ranges  |
-| Fallback Protocol   | EMV L2 with dynamic cryptogram         |
-
-
-
-## 💰 Economic Impact  
-**Per 1M Cards (Annual)**  
-```python
-def calculate_savings():
-    fraud_loss = 2100000  # Traditional system
-    replacements = 150000 # @ $3/card
-    dyno_fraud = fraud_loss * 0.27  # 73% reduction
-    dyno_replace = replacements * 0.1 # 90% reduction
-    return f"${(fraud_loss + replacements) - (dyno_fraud + dyno_replace):,} saved"
-    
-print(calculate_savings())  # Output: $2,373,000 saved
-```
+* No printed card number or CVV
+* Dynamic numbers that change regularly
+* App-based token generation for online and in-person use
+* Faster card reissuance and lower fraud rates
 
 ---
 
-## 🚀 Implementation  
-### Bank Integration  
-```bash
-# Clone reference implementation
-git clone https://github.com/dyno-systems/core-engine.git
+## 📊 Why Dyno?
 
-# Configuration (env.example)
-DYNO_MASTER_KEY="secp384r1:3a8f2c..."  
-TOKEN_VAULT_ADAPTER=postgresql  
-FRAUD_ML_MODEL=resnet-18:v4.2  
-```
-
-### Card Manufacturing Specs  
-| Parameter           | Value                     |
-|---------------------|---------------------------|
-| Chip OS             | JCOP 4.0                  |
-| Secure Element      | SLE 78CLX2000             |
-| NFC Interface       | ISO/IEC 14443 Type A      |
-| Dynamic Display     | E-Ink (2.9" 296x128)      |
+| Feature                  | Traditional Cards | Virtual Cards | **Dyno Systems** |
+| ------------------------ | ----------------- | ------------- | ---------------- |
+| Static PAN/CVV           | ✅                 | ❌             | ❌                |
+| Tokenized Transactions   | ❌                 | ✅             | ✅                |
+| Physical Card Usability  | ✅                 | ❌             | ✅                |
+| Numberless Physical Card | ❌                 | ✅             | ✅                |
+| Dynamic CVV/PAN          | ❌                 | ✅             | ✅                |
+| Fraud Resistance         | Low               | Medium        | **High**         |
+| Card Reissuance Needed   | ✅                 | ✅             | ❌                |
 
 ---
 
-## 📚 Documentation  
-- [Protocol Whitepaper](/docs/DYNO_Whitepaper_v1.2.pdf)  
-- [PCI DSS Compliance Guide](/docs/pci-compliance.md)  
-- [ATM Integration RFC](/docs/RFC-ATM-Integration.md)  
+## 💰 Potential Impact
+
+* **60% reduction in card fraud** (Visa)
+* **\$65K–\$130K savings annually** for a 100,000-card portfolio
+* **\$5–\$20** saved per card not needing reissuance (ABA)
+* Reduced logistical and operational costs for banks
 
 ---
 
-## 🌐 Governance  
-**Working Group Members**  
-- Bank of New Zealand (BNZ)  
-- EMVCo Technical Committee  
-- MIT Digital Currency Initiative  
+## 🛡️ How It Works
+
+1. **Token Generation**: Unique transaction tokens are generated per use.
+2. **Rotating Identifiers**: Card numbers and CVVs are never static.
+3. **App Integration**: Secure mobile app displays active card info.
+4. **Offline Security**: Physical card carries no usable info without token.
 
 ---
 
-## ⚖️ License  
-Dual-licensed under **MIT** (reference implementation) and **Apache 2.0** (protocol specification).  
+## 📄 Research
 
-```
-This README focuses on DYNO's technical and financial substance rather than website design. For web components, see `/web-ui` directory.
+This project is backed by detailed industry research on tokenization, fraud rates, card replacement costs, and fintech innovations.
+View the full research paper [here](./Dyno%20Card%20Research.md) *(or replace with actual link in repo)*.
+
+---
+
+## 📚 References
+
+* Visa. *Securing the Future of Payments with Tokenization*, 2023
+* Nilson Report. *Global Card Fraud Losses*, 2023
+* Mastercard. *Enhancing Security and Approval Rates*, 2023
+* ABA. *Card Issuance and Replacement Costs*, 2023
+* Apple, Privacy.com, Idemia, Thales
+
+---
+
+## 🤝 Get Involved
+
+We're looking for collaborators in fintech, cybersecurity, and UX development. Join us in building a safer payment ecosystem.
+
+---
+
