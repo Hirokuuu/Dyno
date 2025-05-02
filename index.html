@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyno Systems - Secure Dynamic Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { font-family: 'Space Mono', monospace; }
+        #particles-js { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .section-spacing { padding: 6rem 0; }
+        .timeline-line { height: 2px; background: black; position: relative; }
+        .timeline-dot { width: 12px; height: 12px; background: black; position: absolute; top: -5px; }
+        #card-container { width: 100%; height: 300px; position: relative; }
+        .mobile-menu { display: none; }
+        @media (max-width: 768px) {
+            .desktop-menu { display: none; }
+            .mobile-menu { display: block; }
+            #card-container { height: 250px; }
+        }
+        .feature-dot { width: 8px; height: 8px; background: black; display: inline-block; margin-right: 12px; }
+        .bank-logo { filter: grayscale(1); opacity: 0.5; transition: all 0.3s; }
+        .bank-logo:hover { filter: grayscale(0); opacity: 1; }
+    </style>
+</head>
+<body class="bg-white">
+    <div id="particles-js"></div>
+
+    <nav class="px-6 py-4 fixed w-full bg-white z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="text-xl">DYNO</span>
+            <div class="desktop-menu space-x-6">
+                <a href="#tech" class="hover:underline">Technology</a>
+                <a href="#stats" class="hover:underline">Stats</a>
+                <a href="#research" class="hover:underline">Research</a>
+                <a href="#access" class="hover:underline">Access</a>
+            </div>
+            <button class="mobile-menu text-xl">☰</button>
+        </div>
+    </nav>
+
+    <section class="container mx-auto px-6 pt-40 pb-24">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-5xl mb-6 leading-tight">Card numbers that<br>expire before theft.</h1>
+                <p class="text-xl">Dynamic encryption replacing static digits - blank backs, rotating fronts.</p>
+            </div>
+            <div class="md:w-1/2" id="card-container"></div>
+        </div>
+    </section>
+
+    <section id="stats" class="bg-black text-white section-spacing">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto grid grid-cols-3 gap-8 text-center">
+                <div class="border-r border-white pr-8">
+                    <div class="text-4xl mb-2">0$</div>
+                    <div class="text-sm">CARD REPLACEMENT</div>
+                </div>
+                <div class="border-r border-white pr-8">
+                    <div class="text-4xl mb-2">∞</div>
+                    <div class="text-sm">NUMBER COMBINATIONS</div>
+                </div>
+                <div>
+                    <div class="text-4xl mb-2">24/7</div>
+                    <div class="text-sm">FRAUD PROTECTION</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="section-spacing">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl mb-12">How It Works</h2>
+                <div class="timeline-line mb-12">
+                    <div class="timeline-dot left-0"></div>
+                    <div class="timeline-dot left-1/2"></div>
+                    <div class="timeline-dot left-full"></div>
+                </div>
+                <div class="grid grid-cols-3 gap-8 text-center">
+                    <div><div class="text-2xl mb-4">1. Generate</div><p class="text-sm">Unique number per transaction</p></div>
+                    <div><div class="text-2xl mb-4">2. Validate</div><p class="text-sm">Bank-side verification</p></div>
+                    <div><div class="text-2xl mb-4">3. Expire</div><p class="text-sm">Immediate retirement</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-black text-white section-spacing">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto grid grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl mb-6">Traditional Cards</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li>• Static numbers</li>
+                        <li>• Physical CVV theft</li>
+                        <li>• Costly replacements</li>
+                    </ul>
+                </div>
+                <div class="border-l border-white pl-12">
+                    <h3 class="text-2xl mb-6">Dyno Cards</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li>• Dynamic rotation</li>
+                        <li>• Blank surface</li>
+                        <li>• Instant reissue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl mb-8">Trusted by Financial Leaders</h2>
+                <div class="grid grid-cols-4 gap-8 items-center">
+                    <img src="https://img.icons8.com/color/96/000000/amex.png" class="bank-logo h-12 w-auto mx-auto" alt="Amex">
+                    <img src="https://img.icons8.com/color/96/000000/discover.png" class="bank-logo h-12 w-auto mx-auto" alt="Discover">
+                    <img src="https://img.icons8.com/color/96/000000/visa.png" class="bank-logo h-12 w-auto mx-auto" alt="Visa">
+                    <img src="https://img.icons8.com/color/96/000000/mastercard.png" class="bank-logo h-12 w-auto mx-auto" alt="Mastercard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-black text-white section-spacing">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex items-start">
+                    <span class="feature-dot"></span>
+                    <div><h3 class="text-xl mb-4">Military Encryption</h3><p class="text-sm opacity-75">AES-256 transactions</p></div>
+                </div>
+                <div class="flex items-start">
+                    <span class="feature-dot"></span>
+                    <div><h3 class="text-xl mb-4">Instant Freeze</h3><p class="text-sm opacity-75">Mobile app control</p></div>
+                </div>
+                <div class="flex items-start">
+                    <span class="feature-dot"></span>
+                    <div><h3 class="text-xl mb-4">Biometric Auth</h3><p class="text-sm opacity-75">Fingerprint/Face ID</p></div>
+                </div>
+                <div class="flex items-start">
+                    <span class="feature-dot"></span>
+                    <div><h3 class="text-xl mb-4">Global Coverage</h3><p class="text-sm opacity-75">150+ currencies</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Research Section -->
+    <section id="research" class="bg-white section-spacing">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl mb-8">Independent Research Findings</h2>
+                
+                <div class="border-2 border-black p-8 mb-8">
+                    <h3 class="text-xl mb-4">Key Financial Impacts</h3>
+                    <ul class="space-y-4 list-disc pl-6">
+                        <li>73% reduction in card-not-present fraud</li>
+                        <li>$23.6B annual savings for banks globally</li>
+                        <li>8-14 month ROI for implementation</li>
+                    </ul>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="border-2 border-black p-6">
+                        <h3 class="text-xl mb-4">Comparative Savings</h3>
+                        <p class="text-sm mb-4">Traditional System vs Dyno (per 1M users)</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span>Fraud Losses:</span>
+                                <span>$2.1M → $0.3M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Card Replacements:</span>
+                                <span>$450K → $45K</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-2 border-black p-6">
+                        <h3 class="text-xl mb-4">Full White Paper</h3>
+                        <p class="text-sm mb-4">35-page analysis of security and economic impacts</p>
+                        <a href="#" class="inline-block px-6 py-3 border-2 border-black 
+                           hover:bg-black hover:text-white transition-all duration-300">
+                            Download PDF (2.4MB)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="access" class="section-spacing">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-xl mx-auto">
+                <h2 class="text-3xl mb-8">Secure Your Financial Flow</h2>
+                <button class="px-8 py-4 border-2 border-black hover:bg-black hover:text-white transition-all duration-300 mb-4">
+                    Join Waitlist
+                </button>
+                <p class="text-sm opacity-75">Partnered with 42 banks worldwide</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-black py-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div><h4 class="text-lg mb-4">DYNO Systems</h4><p class="text-sm opacity-75">© 2023 All rights reserved</p></div>
+                <div><h4 class="text-lg mb-4">Contact</h4><p class="text-sm opacity-75">support@dyno.cards<br>+1 555 010 2040</p></div>
+                <div><h4 class="text-lg mb-4">Legal</h4><p class="text-sm opacity-75"><a href="#" class="hover:underline">Privacy</a><br><a href="#" class="hover:underline">Terms</a></p></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 3D Card Visualization
+        const cardContainer = document.getElementById('card-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, cardContainer.offsetWidth / 300, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        
+        renderer.setSize(cardContainer.offsetWidth, 300);
+        renderer.setClearColor(0x000000, 0);
+        cardContainer.appendChild(renderer.domElement);
+
+        const geometry = new THREE.BoxGeometry(3, 2, 0.05);
+        const edges = new THREE.EdgesGeometry(geometry);
+        const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000000 }));
+        scene.add(line);
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            line.rotation.x += 0.005;
+            line.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = cardContainer.offsetWidth / 300;
+            camera.updateProjectionMatrix();
+            renderer.setSize(cardContainer.offsetWidth, 300);
+        });
+
+        // Subtle Particles
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 15, density: { enable: true, value_area: 1000 } },
+                color: { value: "#000000" },
+                shape: { type: "circle" },
+                opacity: { value: 0.05, random: true },
+                size: { value: 1.5, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 250,
+                    color: "#000000",
+                    opacity: 0.03,
+                    width: 0.8
+                },
+                move: {
+                    enable: true,
+                    speed: 0.5,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: false },
+                    onclick: { enable: false },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.6s';
+            observer.observe(section);
+        });
+
+        // Mobile Menu
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
+            const menu = document.createElement('div');
+            menu.className = 'fixed inset-0 bg-white z-50 p-8';
+            menu.innerHTML = `
+                <div class="flex justify-between mb-12">
+                    <span class="text-xl">DYNO</span>
+                    <button onclick="this.parentElement.parentElement.remove()">✕</button>
+                </div>
+                <div class="space-y-6 text-2xl">
+                    <a href="#tech" class="block">Technology</a>
+                    <a href="#stats" class="block">Stats</a>
+                    <a href="#research" class="block">Research</a>
+                    <a href="#access" class="block">Access</a>
+                </div>
+            `;
+            document.body.appendChild(menu);
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
