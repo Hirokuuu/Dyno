@@ -1,6 +1,6 @@
 # Dyno
 
-```markdown
+
 # DYNO - Dynamic Card Security Protocol  
 **Zero-Static Payment Infrastructure**  
 
@@ -29,7 +29,7 @@ DYNO eliminates these vulnerabilities through **real-time credential rotation**.
 | - Magstripe         |       | - Time-based CVV    |
 +---------------------+       | - Ephemeral Expiry  |
                               +---------------------+
-```
+
 
 ### Key Features  
 | Component           | Specification                          |
@@ -39,7 +39,7 @@ DYNO eliminates these vulnerabilities through **real-time credential rotation**.
 | Token Mapping       | ISO 8583-compliant dynamic BIN ranges  |
 | Fallback Protocol   | EMV L2 with dynamic cryptogram         |
 
----
+
 
 ## 💰 Economic Impact  
 **Per 1M Cards (Annual)**  
